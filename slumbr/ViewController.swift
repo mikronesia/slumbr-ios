@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var butRW: UIButton!
     @IBOutlet weak var lblTrackName: UILabel!
     @IBOutlet weak var lblSettings: UILabel!
+    @IBOutlet weak var imgLogo: UIImageView!
+    @IBOutlet weak var imgBG: UIImageView!
+    @IBOutlet weak var circProgress: KDCircularProgress!
     var updater : CADisplayLink! = nil
     var player = AVPlayer()
     var playerItem : AVPlayerItem! = nil
@@ -27,12 +30,31 @@ class ViewController: UIViewController {
     var timer:Timer!
     var timerSleep:Timer!
     var sleepTime : Float = -1
+    var currDuration : Float = 0
     var vPlayer: AVPlayer?
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        circProgress.angle = 0
         loadVideo()
         loadJSON();
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        butSettings.alpha = 0
+        butPlayPause.alpha = 0
+        butFF.alpha = 0
+        butRW.alpha = 0
+        lblTrackName.alpha = 0
+        lblSettings.alpha = 0
+        imgLogo.alpha = 0
+        imgBG.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +77,34 @@ class ViewController: UIViewController {
         self.view.layer.addSublayer(playerLayer)
         vPlayer?.seek(to: kCMTimeZero)
         vPlayer?.play()
+        NotificationCenter.default.addObserver(self, selector:#selector(self.playerDidFinishPlaying(note:)),name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: vPlayer?.currentItem)
+    }
+    
+    func playerDidFinishPlaying(note:NSNotification){
+        print("finished")
+        //self.view.layer.removeFromSuperlayer()
+        animatedButtonsIn()
+    }
+    
+    func animatedButtonsIn() {
+        UIView.animate(withDuration: 1.5, animations: {
+            self.butFF.alpha = 1.0
+            self.butRW.alpha = 1.0
+            self.imgBG.alpha = 0.66
+            self.lblSettings.alpha = 1.0
+            self.lblTrackName.alpha = 1.0
+        })
+        
+        UIView.animate(withDuration: 1, delay: 0.3,
+                       options: [.curveEaseInOut],
+                       animations: {
+                        self.imgLogo.center.y -= (self.view.bounds.height / 2) -  150
+                        self.imgLogo.alpha = 1
+                        self.butPlayPause.alpha = 1
+                        self.butSettings.alpha = 1
+        },
+                       completion: nil
+        )
     }
     
     func loadJSON() {
@@ -92,14 +142,16 @@ class ViewController: UIViewController {
     
     //Timer(s)
     func updateTime() {
-        /*let currentTime = Float(CMTimeGetSeconds(player.currentTime()))
-        seekInTrack.value = currentTime
-        let minutes = Int(currentTime) / 60 % 60
-        let seconds = Int(currentTime) % 60
-        currTime.text = String(format: "%02i:%02i", minutes,seconds) as String*/
+        //let currentTime = Float(CMTimeGetSeconds(player.currentTime()))
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let aSleepValue = Float(appDelegate.sleepTime)
         lblSettings.text = String(aSleepValue)
+        if (isPlaying) {
+            let cur = Float(CMTimeGetSeconds(self.player.currentTime()))
+            let max = currDuration
+            circProgress.angle = Double(Int(360 * (cur / max)))
+            //on CLICK - https://www.andrewcbancroft.com/2015/07/09/circular-progress-indicator-in-swift/
+        }
     }
     
     func updateSleepTimer() {
@@ -150,12 +202,13 @@ class ViewController: UIViewController {
     
     func getTrack () {
         let randomIndex = Int(arc4random_uniform(UInt32(arrTracks.count)))
-        //let url = "http://earsnake.com/quiescent/"+arrTracks[randomIndex]+".mp3"
-        let url = "http://localhost/quiescent/"+arrTracks[randomIndex]+".mp3"
-        lblTrackName.text = arrTracks[randomIndex]
+        let url = "http://earsnake.com/quiescent/"+arrTracks[randomIndex]+".mp3"
+        //let url = "http://localhost/quiescent/"+arrTracks[randomIndex]+".mp3"
+        lblTrackName.text = arrTracks[randomIndex].uppercased()
         let playerItem = AVPlayerItem( url:NSURL( string:url ) as! URL )
         player = AVPlayer(playerItem:playerItem)
         player.rate = 1.0
+        currDuration = Float(CMTimeGetSeconds((player.currentItem?.asset.duration)!))
         lblSettings.text = String(CMTimeGetSeconds(playerItem.currentTime()))
         playTrack()
         butPlayPause.setTitle("Pause", for: UIControlState.normal)

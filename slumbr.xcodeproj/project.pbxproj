@@ -13,7 +13,15 @@
 		CE54E6B61DF1CE40009358DE /* slumbr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE54E6B41DF1CE40009358DE /* slumbr.xcdatamodeld */; };
 		CE54E6B81DF1CE40009358DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE54E6B71DF1CE40009358DE /* Assets.xcassets */; };
 		CE54E6BB1DF1CE40009358DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE54E6B91DF1CE40009358DE /* LaunchScreen.storyboard */; };
-		CEB2C6DB1DF2234A00BED135 /* animation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CEB2C6D81DF2055900BED135 /* animation.mp4 */; };
+		CEBD37FF1DF8B7D100840432 /* animation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CEBD37F61DF8B7D100840432 /* animation.mp4 */; };
+		CEBD38001DF8B7D100840432 /* ff-left.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBD37F71DF8B7D100840432 /* ff-left.png */; };
+		CEBD38011DF8B7D100840432 /* ff-right.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBD37F81DF8B7D100840432 /* ff-right.png */; };
+		CEBD38021DF8B7D100840432 /* gradient-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBD37F91DF8B7D100840432 /* gradient-bg.png */; };
+		CEBD38041DF8B7D100840432 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBD37FB1DF8B7D100840432 /* logo.png */; };
+		CEBD38051DF8B7D100840432 /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBD37FC1DF8B7D100840432 /* more.png */; };
+		CEBD38061DF8B7D100840432 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBD37FD1DF8B7D100840432 /* pause.png */; };
+		CEBD38071DF8B7D100840432 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBD37FE1DF8B7D100840432 /* play.png */; };
+		CEBD380B1DF8BA4700840432 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD380A1DF8BA4700840432 /* KDCircularProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +33,15 @@
 		CE54E6B71DF1CE40009358DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE54E6BA1DF1CE40009358DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE54E6BC1DF1CE40009358DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEB2C6D81DF2055900BED135 /* animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = animation.mp4; path = slumbr/res/video/animation.mp4; sourceTree = "<group>"; };
+		CEBD37F61DF8B7D100840432 /* animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = animation.mp4; path = slumbr/res/animation.mp4; sourceTree = "<group>"; };
+		CEBD37F71DF8B7D100840432 /* ff-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ff-left.png"; path = "slumbr/res/ff-left.png"; sourceTree = "<group>"; };
+		CEBD37F81DF8B7D100840432 /* ff-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ff-right.png"; path = "slumbr/res/ff-right.png"; sourceTree = "<group>"; };
+		CEBD37F91DF8B7D100840432 /* gradient-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gradient-bg.png"; path = "slumbr/res/gradient-bg.png"; sourceTree = "<group>"; };
+		CEBD37FB1DF8B7D100840432 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = slumbr/res/logo.png; sourceTree = "<group>"; };
+		CEBD37FC1DF8B7D100840432 /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = more.png; path = slumbr/res/more.png; sourceTree = "<group>"; };
+		CEBD37FD1DF8B7D100840432 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = slumbr/res/pause.png; sourceTree = "<group>"; };
+		CEBD37FE1DF8B7D100840432 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = slumbr/res/play.png; sourceTree = "<group>"; };
+		CEBD380A1DF8BA4700840432 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				CE54E6AD1DF1CE40009358DE /* AppDelegate.swift */,
+				CEBD380A1DF8BA4700840432 /* KDCircularProgress.swift */,
 				CE54E6AF1DF1CE40009358DE /* ViewController.swift */,
 				CE54E6B11DF1CE40009358DE /* Main.storyboard */,
 				CE54E6B71DF1CE40009358DE /* Assets.xcassets */,
@@ -73,17 +90,16 @@
 		CEB2C6D91DF2057B00BED135 /* res */ = {
 			isa = PBXGroup;
 			children = (
-				CEB2C6DA1DF2058100BED135 /* video */,
+				CEBD37F61DF8B7D100840432 /* animation.mp4 */,
+				CEBD37F71DF8B7D100840432 /* ff-left.png */,
+				CEBD37F81DF8B7D100840432 /* ff-right.png */,
+				CEBD37F91DF8B7D100840432 /* gradient-bg.png */,
+				CEBD37FB1DF8B7D100840432 /* logo.png */,
+				CEBD37FC1DF8B7D100840432 /* more.png */,
+				CEBD37FD1DF8B7D100840432 /* pause.png */,
+				CEBD37FE1DF8B7D100840432 /* play.png */,
 			);
 			name = res;
-			sourceTree = "<group>";
-		};
-		CEB2C6DA1DF2058100BED135 /* video */ = {
-			isa = PBXGroup;
-			children = (
-				CEB2C6D81DF2055900BED135 /* animation.mp4 */,
-			);
-			name = video;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +161,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB2C6DB1DF2234A00BED135 /* animation.mp4 in Resources */,
+				CEBD38071DF8B7D100840432 /* play.png in Resources */,
+				CEBD38001DF8B7D100840432 /* ff-left.png in Resources */,
+				CEBD38051DF8B7D100840432 /* more.png in Resources */,
+				CEBD38041DF8B7D100840432 /* logo.png in Resources */,
+				CEBD37FF1DF8B7D100840432 /* animation.mp4 in Resources */,
 				CE54E6BB1DF1CE40009358DE /* LaunchScreen.storyboard in Resources */,
+				CEBD38061DF8B7D100840432 /* pause.png in Resources */,
+				CEBD38011DF8B7D100840432 /* ff-right.png in Resources */,
 				CE54E6B81DF1CE40009358DE /* Assets.xcassets in Resources */,
+				CEBD38021DF8B7D100840432 /* gradient-bg.png in Resources */,
 				CE54E6B31DF1CE40009358DE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBD380B1DF8BA4700840432 /* KDCircularProgress.swift in Sources */,
 				CE54E6B01DF1CE40009358DE /* ViewController.swift in Sources */,
 				CE54E6AE1DF1CE40009358DE /* AppDelegate.swift in Sources */,
 				CE54E6B61DF1CE40009358DE /* slumbr.xcdatamodeld in Sources */,
