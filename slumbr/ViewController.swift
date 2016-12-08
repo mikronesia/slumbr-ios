@@ -55,6 +55,7 @@ class ViewController: UIViewController {
         lblSettings.alpha = 0
         imgLogo.alpha = 0
         imgBG.alpha = 0
+        circProgress.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,15 +91,16 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 1.5, animations: {
             self.butFF.alpha = 1.0
             self.butRW.alpha = 1.0
-            self.imgBG.alpha = 0.66
+            self.imgBG.alpha = 0.50
             self.lblSettings.alpha = 1.0
             self.lblTrackName.alpha = 1.0
+            self.circProgress.alpha = 1.0
         })
         
         UIView.animate(withDuration: 1, delay: 0.3,
                        options: [.curveEaseInOut],
                        animations: {
-                        self.imgLogo.center.y -= (self.view.bounds.height / 2) -  150
+                        self.imgLogo.center.y -= 50
                         self.imgLogo.alpha = 1
                         self.butPlayPause.alpha = 1
                         self.butSettings.alpha = 1
@@ -145,7 +147,7 @@ class ViewController: UIViewController {
         //let currentTime = Float(CMTimeGetSeconds(player.currentTime()))
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let aSleepValue = Float(appDelegate.sleepTime)
-        lblSettings.text = String(aSleepValue)
+        //lblSettings.text = String(aSleepValue)
         if (isPlaying) {
             let cur = Float(CMTimeGetSeconds(self.player.currentTime()))
             let max = currDuration
@@ -160,6 +162,7 @@ class ViewController: UIViewController {
             appDelegate.sleepTime -= 1
         } else if (appDelegate.sleepTime==0){
             pauseTrack()
+            statusMsg(msg: "The free version of Slumbr only allows for 20:00 of playback. Upgrade to Pro in Settings.")
         }
     }
     
@@ -172,11 +175,14 @@ class ViewController: UIViewController {
         } else {
             if (isPlaying) {
                 pauseTrack()
-                butPlayPause.setTitle("Play", for: UIControlState.normal)
+                //butPlayPause.setTitle("Play", for: UIControlState.normal)
+                //butPlayPause.setImage(UIImage(named: "play")?.withRenderingMode(.alwaysOriginal), for: .normal)
                 isPlaying = false
             } else {
                 playTrack()
-                butPlayPause.setTitle("Pause", for: UIControlState.normal)
+                //butPlayPause.setTitle("Pause", for: UIControlState.normal)
+                //butPlayPause.setImage(UIImage(named: "pause")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                
                 isPlaying = true
             }
         }
@@ -190,14 +196,27 @@ class ViewController: UIViewController {
         getTrack()
     }
     
+    func statusMsg(msg: String) {
+        UIView.animate(withDuration: 1, delay: 0.3,
+                       options: [.curveEaseInOut],
+                       animations: {
+                        self.imgLogo.center.y += 50
+        },
+                       completion: nil
+        )
+        lblSettings.text = msg
+    }
+    
     func playTrack() {
         player.play()
-        butPlayPause.setTitle("Pause", for: UIControlState.normal)
+        //butPlayPause.setTitle("Pause", for: UIControlState.normal)
+        butPlayPause.setImage(UIImage(named: "Pause")?.withRenderingMode(.alwaysOriginal), for: .normal)
     }
     
     func pauseTrack() {
         player.pause()
-        butPlayPause.setTitle("Play", for: UIControlState.normal)
+        //butPlayPause.setTitle("Play", for: UIControlState.normal)
+        butPlayPause.setImage(UIImage(named: "Play")?.withRenderingMode(.alwaysOriginal), for: .normal)
     }
     
     func getTrack () {
@@ -209,7 +228,7 @@ class ViewController: UIViewController {
         player = AVPlayer(playerItem:playerItem)
         player.rate = 1.0
         currDuration = Float(CMTimeGetSeconds((player.currentItem?.asset.duration)!))
-        lblSettings.text = String(CMTimeGetSeconds(playerItem.currentTime()))
+        //lblSettings.text = String(CMTimeGetSeconds(playerItem.currentTime()))
         playTrack()
         butPlayPause.setTitle("Pause", for: UIControlState.normal)
         isPlaying = true
