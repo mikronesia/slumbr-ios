@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE085E581E006F9F00D6DE33 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE085E571E006F9F00D6DE33 /* SettingsTableViewController.swift */; };
+		CE085E5A1E008D1D00D6DE33 /* SleepTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE085E591E008D1D00D6DE33 /* SleepTimerViewController.swift */; };
 		CE54E6AE1DF1CE40009358DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54E6AD1DF1CE40009358DE /* AppDelegate.swift */; };
 		CE54E6B01DF1CE40009358DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54E6AF1DF1CE40009358DE /* ViewController.swift */; };
 		CE54E6B31DF1CE40009358DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE54E6B11DF1CE40009358DE /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE085E571E006F9F00D6DE33 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = ../SettingsTableViewController.swift; sourceTree = "<group>"; };
+		CE085E591E008D1D00D6DE33 /* SleepTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepTimerViewController.swift; sourceTree = "<group>"; };
 		CE54E6AA1DF1CE40009358DE /* slumbr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slumbr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE54E6AD1DF1CE40009358DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE54E6AF1DF1CE40009358DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 			children = (
 				CE54E6AD1DF1CE40009358DE /* AppDelegate.swift */,
 				CEBD380A1DF8BA4700840432 /* KDCircularProgress.swift */,
+				CE085E571E006F9F00D6DE33 /* SettingsTableViewController.swift */,
+				CE085E591E008D1D00D6DE33 /* SleepTimerViewController.swift */,
 				CE54E6AF1DF1CE40009358DE /* ViewController.swift */,
 				CE54E6B11DF1CE40009358DE /* Main.storyboard */,
 				CE54E6B71DF1CE40009358DE /* Assets.xcassets */,
@@ -182,7 +188,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE085E5A1E008D1D00D6DE33 /* SleepTimerViewController.swift in Sources */,
 				CEBD380B1DF8BA4700840432 /* KDCircularProgress.swift in Sources */,
+				CE085E581E006F9F00D6DE33 /* SettingsTableViewController.swift in Sources */,
 				CE54E6B01DF1CE40009358DE /* ViewController.swift in Sources */,
 				CE54E6AE1DF1CE40009358DE /* AppDelegate.swift in Sources */,
 				CE54E6B61DF1CE40009358DE /* slumbr.xcdatamodeld in Sources */,

@@ -146,7 +146,7 @@ class ViewController: UIViewController {
     func updateTime() {
         //let currentTime = Float(CMTimeGetSeconds(player.currentTime()))
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let aSleepValue = Float(appDelegate.sleepTime)
+        let SleepValue = Float(appDelegate.sleepTime)
         //lblSettings.text = String(aSleepValue)
         if (isPlaying) {
             let cur = Float(CMTimeGetSeconds(self.player.currentTime()))
